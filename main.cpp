@@ -6,7 +6,7 @@ using namespace std;
 //////////// functions ///////////
 void fillMatrix(int matrix[2][2]);
 void printMatrix(int matrix[2][2]);
-
+void InverseMatrix(int matrix[2][2]);
 
 int main() {
 
@@ -18,26 +18,40 @@ int main() {
   cout << "The matrix you inputed is:" << endl;
   printMatrix(matrix);
 
-  cout << "The inverse of that matrix is: " << endl;
-  
-
+  InverseMatrix(matrix);
 
   return 0;  
 }
+
+/////////////////////// User Defined Functions /////////////////////////////////////
 
 /*This function finds and outputs the inverse of the inputed matrix*/
 
 void InverseMatrix(int matrix[2][2])
 {
-  int IntMatrix[2][2]{};
+  
+  int a = matrix[0][0];
+  int b = matrix[0][1];
+  int c = matrix[1][0];
+  int d = matrix[1][1];
 
-  for (int row = 0; row < 2; row++){
-    for (int col = 0; col < 2; col++)
-    
+  if (((a*d) - (b*c)) == 0){
+    cout << "An error has occured, the inverse of the matrice is not valid." << endl;
+      return;
   }
   
+  int InvMatrix[2][2]{};
 
+  InvMatrix[0][0] = d;      //a =d
+  InvMatrix[1][1] = a;      //d =a
+  InvMatrix[0][1] = - b;    //b=-b
+  InvMatrix[1][0] = - c;    //c=-c
 
+  cout << "The inverse of matrix: " << endl; 
+  printMatrix(matrix);
+  cout << "\nIs:" << endl;
+  printMatrix(InvMatrix);
+  
   return;
 }
 
