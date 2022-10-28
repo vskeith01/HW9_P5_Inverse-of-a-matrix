@@ -15,8 +15,8 @@ int main() {
   cout <<"Please enter the numbers in the 2 by 2 matrix" << endl;
   fillMatrix(matrix);
 
-  cout << "The matrix you inputed is:" << endl;
-  printMatrix(matrix);
+  //cout << "The matrix you inputed is:" << endl;
+  //printMatrix(matrix);
 
   InverseMatrix(matrix);
 
@@ -25,8 +25,8 @@ int main() {
 
 /////////////////////// User Defined Functions /////////////////////////////////////
 
-/*This function finds and outputs the inverse of the inputed matrix*/
 
+/*This function finds and outputs the inverse of the inputed matrix*/
 void InverseMatrix(int matrix[2][2])
 {
   
@@ -50,14 +50,15 @@ void InverseMatrix(int matrix[2][2])
   cout << "The inverse of matrix: " << endl; 
   printMatrix(matrix);
   cout << "\nIs:" << endl;
+  cout << "[1 / (" << a * d << " - " << b*c << ")]    x    " << endl;
   printMatrix(InvMatrix);
+
   
   return;
 }
 
 
 /* This funcion fills the matrix*/
-
 void fillMatrix(int matrix[2][2])
 {
   int row, col, value;
@@ -76,12 +77,14 @@ return;
 void printMatrix(int matrix[2][2])
 {
     int row, col;
+
     for (row = 0; row < 2; row++)
     {
+      cout << "                     ";
         for(col = 0; col < 2; col++)
             cout << setw(6) << matrix[row][col] << " ";
         
-        cout << endl;    
+        cout << endl ;    
     }
 
   return;
